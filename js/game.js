@@ -65,6 +65,9 @@ Game.prototype.spawnBlock = function() {
 
 
 Game.prototype.up = function() {
+  this.clearUp();
+  this.clearUp();
+  this.clearUp();
   this.moveUp();
   this.clearUp();
   this.clearUp();
@@ -92,6 +95,9 @@ Game.prototype.clearUp = function() {
 }
 
 Game.prototype.down = function() {
+  this.clearDown();
+  this.clearDown();
+  this.clearDown();
   this.moveDown();
   this.clearDown();
   this.clearDown();
@@ -119,6 +125,9 @@ Game.prototype.clearDown = function() {
 }
 
 Game.prototype.left = function() {
+  this.clearLeft();
+  this.clearLeft();
+  this.clearLeft();
   this.moveLeft();
   this.clearLeft();
   this.clearLeft();
@@ -146,6 +155,9 @@ Game.prototype.clearLeft = function() {
 }
 
 Game.prototype.right = function() {
+  this.clearRight();
+  this.clearRight();
+  this.clearRight();
   this.moveRight();
   this.clearRight();
   this.clearRight();
