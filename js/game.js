@@ -6,8 +6,18 @@ Game.prototype.prettyBoard = function() {
   console.log(g.currentBoard.slice(12,16))
 }
 
-g = new Game ([0,0,0,0,0,0,0,4,2,0,0,4,2,0,0,0,])
+Game.prototype.populateDom = function() {
+  for (var i = 0; i < 16; i++) {
+    $("#"+String(i)).removeClass()
+    $("#"+String(i)).html(this.currentBoard[i])
+    $("#"+String(i)).addClass("class"+String(this.currentBoard[i]))
+
+  }
+}
+
+g = new Game ($("#board"))
   g.prettyBoard();
+  g.populateDom();
 
 $(document).on('keyup',function(e){
   if(e.which==38) {
@@ -27,12 +37,14 @@ $(document).on('keyup',function(e){
     g.left();
   };
   if (g.currentBoard.includes(0)) {
-    g.spawnBlock()
+    g.spawnBlock();
     g.prettyBoard();
+    g.populateDom();
   }
+
 });
 
-function Game(startingBoard) {
+function Game(el, startingBoard) {
   this.startingBoard = startingBoard || boardGenerator();
   this.currentBoard = this.startingBoard
 }

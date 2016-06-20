@@ -1,0 +1,69 @@
+html {
+  text-align: center;
+}
+
+table {
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 100px;
+}
+
+td {
+  width: 140px;
+  height: 140px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  font-weight: 2;
+}
+
+.class0 {
+  color: transparent;
+}
+
+.class2 {
+  background: #FF5733;
+}
+
+.class4 {
+  background: #2BD174;
+}
+
+.class8 {
+  background: #25C0F6
+}
+
+.class16 {
+  background: #B317EE;
+}
+
+.class32 {
+  background: #EE1786;
+}
+
+.class64 {
+  background: #24CA0E;
+}
+
+.class128 {
+  background: #E7780A;
+}
+
+.class256 {
+  background: #A97F7D;
+}
+
+.class512 {
+  background: #0E9C9A;
+}
+
+.class1024 {
+  background: #234F2F;
+}
+
+.class2048 {
+  background: #020303;
+}
+
+
