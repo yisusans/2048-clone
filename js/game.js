@@ -1,23 +1,27 @@
 g = new Game ("0000000420042000")
-console.log(g.currentBoard);
+console.log(g.currentBoard)
 
 $(document).on('keyup',function(e){
   if(e.which==38) {
     console.log("up");
     g.up();
-    console.log(g.currentBoard);
   };
   if(e.which==39) {
     console.log("right");
+    g.right();
   };
   if(e.which==40) {
     console.log("down");
     g.down();
-    console.log(g.currentBoard);
   };
   if(e.which==37) {
     console.log("left");
+    g.left();
   };
+  if (g.currentBoard.includes("0")) {
+    g.spawnBlock()
+    console.log(g.currentBoard)
+  }
 });
 
 
@@ -110,3 +114,65 @@ Game.prototype.clearDown = function() {
     }
   }
 }
+
+Game.prototype.left = function() {
+  this.moveLeft();
+  this.clearLeft();
+  this.clearLeft();
+  this.clearLeft();
+}
+
+Game.prototype.moveLeft = function() {
+  for (var i = 0; i < 16; i++) {
+    for (var j = 0; j < 16; j++) {
+      if ((Math.floor(j/4) - Math.floor(i/4) == 0) && ((j % 4) - (i % 4) == -1) && (i != j) && (this.currentBoard[j] != "0") && (this.currentBoard[i] != "0") && (this.currentBoard[i] == this.currentBoard[j])) {
+        this.currentBoard = this.currentBoard.replaceAt(j, (String(Number(this.currentBoard[j]) * 2)));
+        this.currentBoard = this.currentBoard.replaceAt(i, "0");
+      }
+    }
+  }
+}
+
+Game.prototype.clearLeft = function() {
+  for (var i = 0; i < 16; i++) {
+    if ((i % 4 < 3) && (this.currentBoard[i] == 0) && (this.currentBoard[i+1] != 0)) {
+      this.currentBoard = this.currentBoard.replaceAt(i, this.currentBoard[i+1])
+      this.currentBoard = this.currentBoard.replaceAt((i+1), "0")
+    }
+  }
+}
+
+Game.prototype.right = function() {
+  this.moveRight();
+  this.clearRight();
+  this.clearRight();
+  this.clearRight();
+}
+
+Game.prototype.moveRight = function() {
+  for (var i = 0; i < 16; i++) {
+    for (var j = 0; j < 16; j++) {
+      if ((Math.floor(j/4) - Math.floor(i/4) == 0) && ((j % 4) - (i % 4) == 1) && (i != j) && (this.currentBoard[j] != "0") && (this.currentBoard[i] != "0") && (this.currentBoard[i] == this.currentBoard[j])) {
+        this.currentBoard = this.currentBoard.replaceAt(j, (String(Number(this.currentBoard[j]) * 2)));
+        this.currentBoard = this.currentBoard.replaceAt(i, "0");
+      }
+    }
+  }
+}
+
+Game.prototype.clearRight = function() {
+  for (var i = 0; i < 16; i++) {
+    if ((i % 4 > 0) && (this.currentBoard[i] == 0) && (this.currentBoard[i-1] != 0)) {
+      this.currentBoard = this.currentBoard.replaceAt(i, this.currentBoard[i-1])
+      this.currentBoard = this.currentBoard.replaceAt((i-1), "0")
+    }
+  }
+}
+
+// Game.prototype.prettyBoard = function() {
+//   console.log(this.currentBoard(0,3));
+//   console.log(this.currentBoard(4,7));
+//   console.log(this.currentBoard(8,11))
+//   console.log(this.currentBoard(12,15))
+// }
+
