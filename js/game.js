@@ -12,6 +12,8 @@ $(document).on('keyup',function(e){
   };
   if(e.which==40) {
     console.log("down");
+    g.down();
+    console.log(g.currentBoard);
   };
   if(e.which==37) {
     console.log("left");
@@ -60,13 +62,12 @@ Game.prototype.up = function() {
   this.clearUp();
   this.clearUp();
   this.clearUp();
-
 }
 
 Game.prototype.moveUp = function() {
   for (var i = 0; i < 16; i++) {
     for (var j = 0; j < 16; j++) {
-      if ((j % 4 == i % 4) && ((j/4)-(i/4) == -1) && (i != j) && this.currentBoard[j] != "0" && this.currentBoard[i] != "0") {
+      if ((j % 4 == i % 4) && ((j/4)-(i/4) == -1) && (i != j) && this.currentBoard[j] != "0" && this.currentBoard[i] != "0" && this.currentBoard[i] == this.currentBoard[j]) {
         this.currentBoard = this.currentBoard.replaceAt(j, (String(Number(this.currentBoard[j]) * 2)));
         this.currentBoard = this.currentBoard.replaceAt(i, "0");
       }
@@ -79,6 +80,33 @@ Game.prototype.clearUp = function() {
     if ((i/4 < 3) && (this.currentBoard[i] == 0) && (this.currentBoard[i+4] != 0)) {
       this.currentBoard = this.currentBoard.replaceAt(i, this.currentBoard[i+4])
       this.currentBoard = this.currentBoard.replaceAt((i+4), "0")
+    }
+  }
+}
+
+Game.prototype.down = function() {
+  this.moveDown();
+  this.clearDown();
+  this.clearDown();
+  this.clearDown();
+}
+
+Game.prototype.moveDown = function() {
+  for (var i = 0; i < 16; i++) {
+    for (var j = 0; j < 16; j++) {
+      if ((j % 4 == i % 4) && ((j/4)-(i/4) == 1) && (i != j) && this.currentBoard[j] != "0" && this.currentBoard[i] != "0" && this.currentBoard[i] == this.currentBoard[j]) {
+        this.currentBoard = this.currentBoard.replaceAt(j, (String(Number(this.currentBoard[j]) * 2)));
+        this.currentBoard = this.currentBoard.replaceAt(i, "0");
+      }
+    }
+  }
+}
+
+Game.prototype.clearDown = function() {
+  for (var i = 0; i < 16; i++) {
+    if (Math.floor(i/4) > 0 && (this.currentBoard[i] == 0) && (this.currentBoard[i-4] != 0)) {
+      this.currentBoard = this.currentBoard.replaceAt(i, this.currentBoard[i-4])
+      this.currentBoard = this.currentBoard.replaceAt((i-4), "0")
     }
   }
 }
