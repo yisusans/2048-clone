@@ -1,6 +1,11 @@
+g = new Game ("0000000420042000")
+console.log(g.currentBoard);
+
 $(document).on('keyup',function(e){
   if(e.which==38) {
     console.log("up");
+    g.up();
+    console.log(g.currentBoard);
   };
   if(e.which==39) {
     console.log("right");
@@ -49,10 +54,19 @@ Game.prototype.spawnBlock = function() {
   this.currentBoard = newBoard;
 }
 
+
+Game.prototype.up = function() {
+  this.moveUp();
+  this.clearUp();
+  this.clearUp();
+  this.clearUp();
+
+}
+
 Game.prototype.moveUp = function() {
   for (var i = 0; i < 16; i++) {
     for (var j = 0; j < 16; j++) {
-      if ((j % 4 == i % 4) && ((j/4)-(i/4) == -1) && (i != j) && this.currentBoard[j] != "0") {
+      if ((j % 4 == i % 4) && ((j/4)-(i/4) == -1) && (i != j) && this.currentBoard[j] != "0" && this.currentBoard[i] != "0") {
         this.currentBoard = this.currentBoard.replaceAt(j, (String(Number(this.currentBoard[j]) * 2)));
         this.currentBoard = this.currentBoard.replaceAt(i, "0");
       }
