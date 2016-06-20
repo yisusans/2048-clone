@@ -89,7 +89,7 @@ Game.prototype.up = function() {
 Game.prototype.moveUp = function() {
   for (var i = 0; i < 16; i++) {
     for (var j = 0; j < 16; j++) {
-      if ((j % 4 == i % 4) && ((j/4)-(i/4) == -1) && (i != j) && this.currentBoard[j] != 0 && this.currentBoard[i] != 0 && this.currentBoard[i] == this.currentBoard[j]) {
+      if ((j % 4 == i % 4) && ((j/4)-(i/4) == -1) && (i != j) && this.currentBoard[i] == this.currentBoard[j]) {
         this.currentBoard.splice(j, 1, (this.currentBoard[j] * 2));
         this.currentBoard.splice(i, 1, 0);
       }
@@ -119,7 +119,7 @@ Game.prototype.down = function() {
 Game.prototype.moveDown = function() {
   for (var i = 0; i < 16; i++) {
     for (var j = 0; j < 16; j++) {
-      if ((j % 4 == i % 4) && ((j/4)-(i/4) == 1) && (i != j) && this.currentBoard[j] != 0 && this.currentBoard[i] != 0 && this.currentBoard[i] == this.currentBoard[j]) {
+      if ((j % 4 == i % 4) && ((j/4)-(i/4) == 1) && (i != j) && this.currentBoard[i] == this.currentBoard[j]) {
         this.currentBoard.splice(j, 1, (this.currentBoard[j] * 2));
         this.currentBoard.splice(i, 1, 0);
       }
@@ -149,7 +149,7 @@ Game.prototype.left = function() {
 Game.prototype.moveLeft = function() {
   for (var i = 0; i < 16; i++) {
     for (var j = 0; j < 16; j++) {
-      if ((Math.floor(j/4) - Math.floor(i/4) == 0) && ((j % 4) - (i % 4) == -1) && (i != j) && (this.currentBoard[j] != 0) && (this.currentBoard[i] != 0) && (this.currentBoard[i] == this.currentBoard[j])) {
+      if ((Math.floor(j/4) - Math.floor(i/4) == 0) && ((j % 4) - (i % 4) == -1) && (i != j) && (this.currentBoard[i] == this.currentBoard[j])) {
         this.currentBoard.splice(j, 1, (this.currentBoard[j] * 2));
         this.currentBoard.splice(i, 1, 0);
       }
@@ -179,7 +179,7 @@ Game.prototype.right = function() {
 Game.prototype.moveRight = function() {
   for (var i = 0; i < 16; i++) {
     for (var j = 0; j < 16; j++) {
-      if ((Math.floor(j/4) - Math.floor(i/4) == 0) && ((j % 4) - (i % 4) == 1) && (i != j) && (this.currentBoard[j] != 0) && (this.currentBoard[i] != 0) && (this.currentBoard[i] == this.currentBoard[j])) {
+      if ((Math.floor(j/4) - Math.floor(i/4) == 0) && ((j % 4) - (i % 4) == 1) && (i != j) && (this.currentBoard[i] == this.currentBoard[j])) {
         this.currentBoard.splice(j, 1, (this.currentBoard[j] * 2));
         this.currentBoard.splice(i, 1, 0);
       }
