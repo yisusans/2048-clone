@@ -1,21 +1,34 @@
 html {
   text-align: center;
+  font-family: sans-serif;
 }
 
 table {
-  border: 1px solid black;
+  border: 2px solid black;
   margin: auto;
   margin-top: 100px;
+  border-radius: 20px;
+  background-color: #595959;
+
+}
+
+tbody{
+  background-color: #cccccc;
+}
+
+h1 {
+  color: #005ce6;
 }
 
 td {
   width: 140px;
   height: 140px;
-  border: 1px solid black;
+  border: 2px solid black;
   text-align: center;
   font-size: 40px;
   color: white;
   font-weight: 2;
+  border-radius: 20px;
 }
 
 .class0 {
@@ -23,47 +36,47 @@ td {
 }
 
 .class2 {
-  background: #FF5733;
+  background: #b3ccff;
 }
 
 .class4 {
-  background: #2BD174;
+  background: #80aaff;
 }
 
 .class8 {
-  background: #25C0F6
+  background: #4d88ff;
 }
 
 .class16 {
-  background: #B317EE;
+  background: #0055ff;
 }
 
 .class32 {
-  background: #EE1786;
+  background: #e580ff;
 }
 
 .class64 {
-  background: #24CA0E;
+  background: #db4dff;
 }
 
 .class128 {
-  background: #E7780A;
+  background: #cc00ff;
 }
 
 .class256 {
-  background: #A97F7D;
+  background: #ff0066;
 }
 
 .class512 {
-  background: #0E9C9A;
+  background: #33cc33;
 }
 
 .class1024 {
-  background: #234F2F;
+  background: #ff3300;
 }
 
 .class2048 {
-  background: #020303;
+  background: #ff00ff;
 }
 
 
