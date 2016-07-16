@@ -16,7 +16,9 @@ tbody{
   background-color: #cccccc;
 }
 
-
+h1 {
+  color: #005ce6;
+}
 
 td {
   width: 140px;
