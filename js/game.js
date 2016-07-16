@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 Game.prototype.prettyBoard = function() {
   console.clear();
   console.log(g.currentBoard.slice(0,4));
@@ -196,4 +198,5 @@ Game.prototype.clearRight = function() {
   }
 }
 
+});
 
